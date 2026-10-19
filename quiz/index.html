@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>삼영 안전교육 시험</title>
+<meta name="description" content="현장 안전교육 시험 응시">
+<meta name="theme-color" content="#1e7e46">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="안전교육">
+<style>
+  :root { --accent: #1e7e46; --bg: #f5f6f8; --card: #fff; --text: #1a2230; --muted: #6b7380; --line: #e3e6ea; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #14171c; --card: #1d2128; --text: #e9ecf0; --muted: #9aa3ae; --line: #2c323b; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: system-ui, -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+         background: var(--bg); color: var(--text); line-height: 1.55; }
+  main { max-width: 440px; margin: 0 auto; padding: 40px 16px 32px; }
+  .head { text-align: center; margin-bottom: 24px; }
+  .head img { width: 84px; height: 84px; }
+  h1 { font-size: 22px; margin: 12px 0 4px; }
+  .sub { color: var(--muted); font-size: 14px; margin: 0; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 18px; margin-bottom: 12px; }
+  .card h2 { font-size: 15px; margin: 0 0 8px; }
+  .card p, .card ol { font-size: 14px; margin: 0; color: var(--muted); }
+  .card ol { padding-left: 20px; }
+  .card b { color: var(--text); }
+  .btn { display: block; width: 100%; text-align: center; padding: 14px; border-radius: 12px; border: 0;
+         font-size: 16px; font-weight: 700; text-decoration: none; cursor: pointer; font-family: inherit; }
+  .primary { background: var(--accent); color: #fff; }
+  .ghost { background: transparent; color: var(--accent); border: 1px solid var(--line); margin-top: 8px; font-weight: 600; }
+  .hide { display: none !important; }
+  .spin { width: 34px; height: 34px; border: 3px solid var(--line); border-top-color: var(--accent);
+          border-radius: 50%; margin: 28px auto 12px; animation: r .8s linear infinite; }
+  @keyframes r { to { transform: rotate(360deg); } }
+  .center { text-align: center; color: var(--muted); font-size: 14px; }
+  .warn { border-color: #e7c66b; }
+</style>
+</head>
+<body>
+<main>
+  <div class="head">
+    <img src="icon-192.png" alt="">
+    <h1>삼영 안전교육 시험</h1>
+    <p class="sub">현장 안전교육 시험 응시</p>
+  </div>
+
+  <!-- 설치된 앱으로 실행했을 때: 바로 이동 -->
+  <section id="launch" class="hide">
+    <div class="spin"></div>
+    <p class="center" id="launchMsg">여는 중…</p>
+    <a class="btn primary hide" id="retry" href="https://script.google.com/macros/s/AKfycbxzSXALj_v_93Qls4pi2XP1IhxHg8vKo9POgK5VJa90hDJWftaHDmlWcR96flBW3OTW/exec">다시 열기</a>
+  </section>
+
+  <!-- 브라우저로 이 주소를 열었을 때: 설치 안내 -->
+  <section id="install" class="hide">
+    <div class="card warn hide" id="inapp">
+      <h2>카카오톡 등 앱 안에서 열렸어요</h2>
+      <p>이 화면에서는 설치가 안 됩니다. 아래 버튼으로 <b>크롬/사파리에서 다시 열어</b> 주세요.</p>
+      <a class="btn primary" id="openExternal" href="#" style="margin-top:12px">크롬/사파리로 열기</a>
+    </div>
+
+    <button class="btn primary hide" id="installBtn">앱 설치하기</button>
+
+    <div class="card hide" id="howAndroid">
+      <h2>안드로이드 설치 방법</h2>
+      <ol>
+        <li><b>크롬</b>으로 이 주소를 엽니다</li>
+        <li>오른쪽 위 <b>⋮</b> 메뉴 → <b>앱 설치</b> (또는 <b>홈 화면에 추가</b>)</li>
+        <li>홈 화면에 생긴 <b>안전교육</b> 아이콘으로 실행</li>
+      </ol>
+    </div>
+
+    <div class="card hide" id="howIos">
+      <h2>아이폰 설치 방법</h2>
+      <ol>
+        <li><b>사파리</b>로 이 주소를 엽니다</li>
+        <li>아래쪽 <b>공유 버튼(□↑)</b> → <b>홈 화면에 추가</b></li>
+        <li>홈 화면에 생긴 <b>안전교육</b> 아이콘으로 실행</li>
+      </ol>
+    </div>
+
+    <a class="btn ghost" href="https://script.google.com/macros/s/AKfycbxzSXALj_v_93Qls4pi2XP1IhxHg8vKo9POgK5VJa90hDJWftaHDmlWcR96flBW3OTW/exec">설치 없이 바로 열기</a>
+  </section>
+</main>
+
+<script>
+(function () {
+  var TARGET = 'https://script.google.com/macros/s/AKfycbxzSXALj_v_93Qls4pi2XP1IhxHg8vKo9POgK5VJa90hDJWftaHDmlWcR96flBW3OTW/exec';
+  var ua = navigator.userAgent || '';
+  var isIOS = /iPhone|iPad|iPod/i.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  var isAndroid = /Android/i.test(ua);
+  var inApp = /KAKAOTALK|NAVER|Line\/|FBAN|FBAV|Instagram|DaumApps|everytimeApp|band/i.test(ua);
+  var standalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+  var launched = standalone || /[?&]source=pwa/.test(location.search);
+
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js').catch(function () {});
+  }
+
+  function show(id) { document.getElementById(id).classList.remove('hide'); }
+
+  if (launched) {
+    // 설치된 앱으로 열림 → 시험/관리 화면으로 바로 이동 (뒤로가기 시 이 화면에 갇히지 않도록 replace)
+    show('launch');
+    if (!navigator.onLine) {
+      document.getElementById('launchMsg').textContent = '인터넷 연결이 필요합니다. 연결 후 다시 열어 주세요.';
+      document.querySelector('.spin').classList.add('hide');
+      show('retry');
+      return;
+    }
+    location.replace(TARGET);
+    setTimeout(function () {  // 이동이 막혔을 때 대비
+      document.getElementById('launchMsg').textContent = '화면이 열리지 않으면 아래 버튼을 눌러 주세요.';
+      show('retry');
+    }, 6000);
+    return;
+  }
+
+  // ---- 브라우저에서 열었을 때: 설치 안내
+  show('install');
+  if (inApp) {
+    show('inapp');
+    var here = location.href.split('#')[0];
+    var a = document.getElementById('openExternal');
+    if (isAndroid) {
+      a.href = 'intent://' + here.replace(/^https?:\/\//, '') + '#Intent;scheme=https;package=com.android.chrome;end';
+    } else if (/KAKAOTALK/i.test(ua)) {
+      a.href = 'kakaotalk://web/openExternal?url=' + encodeURIComponent(here);
+    } else {
+      a.classList.add('hide');
+    }
+  }
+  if (isIOS) show('howIos'); else show('howAndroid');
+
+  // 크롬 계열: 설치 버튼 직접 제공
+  var deferred = null;
+  window.addEventListener('beforeinstallprompt', function (e) {
+    e.preventDefault();
+    deferred = e;
+    show('installBtn');
+  });
+  document.getElementById('installBtn').addEventListener('click', function () {
+    if (!deferred) return;
+    deferred.prompt();
+    deferred.userChoice.finally(function () { deferred = null; document.getElementById('installBtn').classList.add('hide'); });
+  });
+  window.addEventListener('appinstalled', function () {
+    document.getElementById('installBtn').classList.add('hide');
+  });
+})();
+</script>
+</body>
+</html>
